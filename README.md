@@ -1,3 +1,4 @@
-# testr
+# Ska tester
 
-Testing framework for unit and regression testing
+Test definitions for unit and integration testing of Ska environment package.
+
