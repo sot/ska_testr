@@ -1,4 +1,4 @@
-from ska_test.runner import make_regress_files
+from testr.runner import make_regress_files
 
 regress_files = ['starcheck.txt',
                  'starcheck/ccd_temperature.png',
