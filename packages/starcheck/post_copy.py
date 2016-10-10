@@ -1,4 +1,4 @@
-from testr.runner import make_regress_files
+from testr.packages import make_regress_files
 
 regress_files = ['starcheck.txt',
                  'starcheck/ccd_temperature.png',
