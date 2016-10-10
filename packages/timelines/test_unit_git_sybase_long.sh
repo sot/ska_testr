@@ -2,4 +2,4 @@
 /usr/bin/git clone ${TESTR_PACKAGES_REPO}/${TESTR_PACKAGE}
 cd ${TESTR_PACKAGE}
 git checkout master
-nosetests timelines_test.py
+# nosetests timelines_test.py
