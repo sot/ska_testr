@@ -2,7 +2,7 @@
 
 /usr/bin/git clone ${TESTR_PACKAGES_REPO}/eng_archive
 cd eng_archive
-git checkout create-faster
+git checkout master
 cp update_archive.py add_derived.py archfiles_def.sql ../
 cd ../
 mkdir data
@@ -12,7 +12,6 @@ START="2016:100"
 STOP="2016:105"
 
 export ENG_ARCHIVE=$PWD
-export PYTHONPATH=/home/aldcroft/git/eng_archive/local/lib/python2.7/site-packages
 
 # Create full resolution data
 echo "Creating archive for normal full resolution MSIDs..."
@@ -29,10 +28,11 @@ export ENG_ARCHIVE=${PWD}:/proj/sot/ska/data/eng_archive
 # Add acispow derived parameters
 CONTENTS="$CONTENTS --content=dp_acispow"
 
-# Update stats
+# Update stats.  --max-lookback-time is about 14 years.  Do not set so large
+# that the start will be before 2000:001.
 #
 echo "Creating archive stats..."
-./update_archive.py --no-full $CONTENTS --max-lookback-time 1e20
+./update_archive.py --no-full --data-root=$PWD $CONTENTS --max-lookback-time=5000
 
 # Compare newly created values to flight
 echo "Comparing newly created values to flight"
