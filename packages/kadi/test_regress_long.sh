@@ -20,4 +20,4 @@ STOP='2015:030'
 ./update_cmds --start=$START --stop=$STOP
 
 # Write event and commands data using test database
-./write_events_cmds.py --start=$START --stop=$START --data-root=events_cmds
+./write_events_cmds.py --start=$START --stop=$STOP --data-root=events_cmds
