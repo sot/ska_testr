@@ -1,5 +1,7 @@
 # Get three launcher scripts manage.py update_events and update_cmds
-/usr/bin/git clone ${TESTR_PACKAGES_REPO}/kadi
+
+GIT=`PATH=/usr/bin:$PATH which git`
+$GIT clone ${TESTR_PACKAGES_REPO}/kadi
 cd kadi
 # For now just use master.  See https://github.com/sot/kadi/issues/84
 #
