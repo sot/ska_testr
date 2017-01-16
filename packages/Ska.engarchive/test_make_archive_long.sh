@@ -1,7 +1,7 @@
 # Test creating new engineering archive database and compare to flight data
 
 GIT=`PATH=/usr/bin:$PATH which git`
-$GIT clone ${TESTR_PACKAGES_REPO}/${TESTR_PACKAGE}
+$GIT clone ${TESTR_PACKAGES_REPO}/eng_archive
 cd eng_archive
 git checkout master
 cp update_archive.py add_derived.py archfiles_def.sql ../
