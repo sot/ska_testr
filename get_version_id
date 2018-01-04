@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo `ska_version` | sed 's/-.*//'
+echo `ska_version`_`uname -i`_${HOST}
 
