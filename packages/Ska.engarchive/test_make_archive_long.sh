@@ -3,9 +3,11 @@
 GIT=`PATH=/usr/bin:$PATH which git`
 $GIT clone ${TESTR_PACKAGES_REPO}/eng_archive
 cd eng_archive
-git checkout master
-cp update_archive.py add_derived.py archfiles_def.sql ../
-cd ../
+
+# Checkout test branch, either ENG_ARCHIVE_BRANCH env var or master.
+# Google "bash parameter expansion" for this syntax.
+git checkout ${ENG_ARCHIVE_BRANCH:-master}
+
 mkdir data
 
 CONTENTS="--content=acis2eng --content=acis3eng --content=acisdeahk --content=simcoor --content=orbitephem0"
@@ -37,4 +39,4 @@ echo "Creating archive stats..."
 
 # Compare newly created values to flight
 echo "Comparing newly created values to flight"
-./compare_values.py --start=$START --stop=$STOP $CONTENTS
+../compare_values.py --start=$START --stop=$STOP $CONTENTS
