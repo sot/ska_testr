@@ -1,3 +1,1 @@
-# Always run flight starcheck, this is not for testing dev starcheck itself.
-
-${SKA}/bin/starcheck -dir ${SKA}/data/starcheck/test_loads/2016/SEP0516/oflsb
+${SKA}/bin/starcheck -dir ${SKA}/data/ska_testr/test_loads/2019/MAY2019/oflsa
