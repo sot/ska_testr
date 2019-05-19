@@ -1,4 +1,6 @@
 dea_check \
    --outdir=out \
-   --oflsdir=/data/acis/LoadReviews/2018/MAY2818/oflsa \
-   --run-start=2018:142
+   --oflsdir=${SKA}/data/ska_testr/test_loads/2019/MAY2019/oflsa \
+   --nlet_file=${SKA}/data/ska_testr/test_loads/2019/MAY2019/oflsa/NonLoadTrackedEvents.txt \
+   --state-builder=sql \
+   --run-start=2019:135
