@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo `ska_version`_`uname -i`_${HOSTNAME}
+echo `ska_version`_`uname -s`_`uname -m`_${HOSTNAME}
 
