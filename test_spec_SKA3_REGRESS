@@ -5,4 +5,4 @@ dea_check
 psmc_check
 starcheck
 # Excludes
--*head*
+- *_head*
