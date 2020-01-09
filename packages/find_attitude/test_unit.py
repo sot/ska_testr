@@ -1,0 +1,2 @@
+import testr
+testr.testr()
