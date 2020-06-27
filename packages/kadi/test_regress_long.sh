@@ -2,24 +2,18 @@
 
 GIT=`PATH=/usr/bin:$PATH which git`
 $GIT clone ${TESTR_PACKAGES_REPO}/kadi
-cd kadi
-# For now just use master.  See https://github.com/sot/kadi/issues/84
-#
-# VERSION=`python -c "import kadi; print(kadi.__version__)"`
-# git checkout $VERSION
-#
-cp manage.py update_events update_cmds ltt_bads.dat ../
-cd ..
+cp kadi/manage.py ./
 rm -rf kadi
 
 export KADI=$PWD
-./manage.py syncdb --noinput
+./manage.py makemigrations --no-input events
+./manage.py migrate --no-input
 
 START='2015:001'
 STOP='2015:030'
 
-./update_events --start=$START --stop=$STOP
-./update_cmds --start=$START --stop=$STOP
+kadi_update_events --start=$START --stop=$STOP
+kadi_update_cmds --start=$START --stop=$STOP
 
 # Write event and commands data using test database
 ./write_events_cmds.py --start=$START --stop=$STOP --data-root=events_cmds
