@@ -56,7 +56,7 @@ def compare_msid(msid, stat):
 
             # Do not explicitly test bads, this is done implicitly by virtue of
             # the bad filtering already applied.
-            if colname is 'bads':
+            if colname == 'bads':
                 continue
 
             # Extend the colname for reporting purposes
