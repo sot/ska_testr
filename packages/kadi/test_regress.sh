@@ -4,14 +4,16 @@ if [ ! -d "$SKA/data/mpcrit1/mplogs" ]
 then
   echo "Directory $SKA/data/mpcrit1/mplogs not found, skipping regression test"
 else
+  export KADI=$PWD
+
   GIT=`PATH=/usr/bin:$PATH which git`
   $GIT clone ${TESTR_PACKAGES_REPO}/kadi
-  cp kadi/manage.py ./
-  rm -rf kadi
 
-  export KADI=$PWD
+  cd kadi
   ./manage.py makemigrations --no-input events
   ./manage.py migrate --no-input
+  cd ..
+  rm -rf kadi
 
   START='2015:001:12:00:00'
   STOP='2015:030:12:00:00'
