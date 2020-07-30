@@ -75,6 +75,7 @@ def compare_outputs():
 
     has_diff = False
     for file_a, file_b in zip(files_a, files_b):
+        print(f'Comparing files {file_a} {file_b}')
         lines_a = file_a.read_text().splitlines()
         lines_b = file_b.read_text().splitlines()
 
