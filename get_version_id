@@ -1,4 +1,4 @@
 #!/bin/sh
 
-echo `ska_version`_`uname -s`_`uname -m`_${HOSTNAME}
-
+DATETIME=`date +"%Y-%m-%dT%T"`
+echo ${HOSTNAME}_${DATETIME}_`uname -s`_`uname -m`_`ska_version`
