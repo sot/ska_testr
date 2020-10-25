@@ -67,8 +67,8 @@ def write_cmds(start, stop):
 def compare_outputs():
     shutil.unpack_archive('events_cmds_regress.tar.bz2')
 
-    files_a = list(Path('events_cmds_regress').glob('*'))
-    files_b = list(Path('events_cmds').glob('*'))
+    files_a = sorted(Path('events_cmds_regress').glob('*'))
+    files_b = sorted(Path('events_cmds').glob('*'))
 
     if [fn.name for fn in files_a] != [fn.name for fn in files_b]:
         raise ValueError('output files mismatch')
