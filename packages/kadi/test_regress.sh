@@ -15,8 +15,12 @@ else
   cd ..
   rm -rf kadi
 
-  START='2015:001:12:00:00'
-  STOP='2015:030:12:00:00'
+  # Note: the start time should be a day or two before the beginning of a
+  # weekly load. This is need because the timeline_id for ORBPOINT events
+  # uses the id of the first load segment in the week, so regression testing
+  # will fail if the database creation starts midweek.
+  START='2020:159:00:00:00'
+  STOP='2020:189:00:00:00'
 
   kadi_update_events --start=$START --stop=$STOP
   kadi_update_cmds --start=$START --stop=$STOP

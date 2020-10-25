@@ -6,4 +6,6 @@ check_files('test_*.log', ['warning', 'error'],
                     'Unable to change file mode',
                     'unable to get COBSRQID',
                     'alter_validators_add_error_messages',
+                    'dropping state because of insufficent event time pad',
+                    'negative event duration',
                     'Coarse OBC'])
