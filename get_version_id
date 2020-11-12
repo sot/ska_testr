@@ -1,4 +1,0 @@
-#!/bin/sh
-
-DATETIME=`date +"%Y-%m-%dT%T"`
-echo ${HOSTNAME}_${DATETIME}_`uname -s`_`uname -m`_`ska_version`
