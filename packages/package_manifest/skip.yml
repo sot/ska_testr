@@ -1,0 +1,3 @@
+'*':
+  check_func: is_windows
+  reason: "package manifest check not run on Windows"

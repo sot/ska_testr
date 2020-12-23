@@ -1,0 +1,3 @@
+'test_make_archive_long.sh':
+  check_func: not on_head_network
+  reason: Must be on HEAD network to run

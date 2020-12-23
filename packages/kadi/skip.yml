@@ -1,0 +1,3 @@
+'*.sh':
+  check_func: is_windows
+  reason: "regression test requires shell"
