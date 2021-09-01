@@ -1,15 +1,29 @@
 # Get three launcher scripts manage.py update_events and update_cmds
 
+KADI_VERSION_CMD=$(cat <<- END
+import re;
+import kadi;
+m = re.search('\.dev[0-9]+\+g(?P<sha>[a-zA-Z0-9]+)', kadi.__version__);
+if m:
+    print(m.groupdict()['sha'])
+else:
+    print(kadi.__version__)
+END
+)
+
 if [ ! -d "$SKA/data/mpcrit1/mplogs" ]
 then
   echo "Directory $SKA/data/mpcrit1/mplogs not found, skipping regression test"
 else
   export KADI=$PWD
 
+  KADI_VERSION=`python -c "$KADI_VERSION_CMD"`
+
   GIT=`PATH=/usr/bin:$PATH which git`
   $GIT clone ${TESTR_PACKAGES_REPO}/kadi
 
   cd kadi
+  $GIT checkout $KADI_VERSION
   ./manage.py makemigrations --no-input events
   ./manage.py migrate --no-input
   cd ..
