@@ -12,7 +12,7 @@ else
   $GIT clone ${TESTR_PACKAGES_REPO}/kadi
 
   cd kadi
-  git co $KADI_VERSION
+  $GIT checkout $KADI_VERSION
   ./manage.py makemigrations --no-input events
   ./manage.py migrate --no-input
   cd ..
