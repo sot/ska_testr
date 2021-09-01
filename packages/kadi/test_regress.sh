@@ -6,10 +6,13 @@ then
 else
   export KADI=$PWD
 
+  KADI_VERSION=`python -c 'import kadi; print(kadi.__version__)'`
+
   GIT=`PATH=/usr/bin:$PATH which git`
   $GIT clone ${TESTR_PACKAGES_REPO}/kadi
 
   cd kadi
+  git co $KADI_VERSION
   ./manage.py makemigrations --no-input events
   ./manage.py migrate --no-input
   cd ..
