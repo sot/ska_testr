@@ -1,0 +1,20 @@
+'*_regress_head.*':
+  check_func: not has_paths
+  check_args:
+    - ${SKA}/data/acis/LoadReviews/2018/MAY2818/oflsa
+    - ${SKA}/data/acis/LoadReviews/NonLoadTrackedEvents.txt
+  reason: Missing load review files in ${SKA}/data/acis/LoadReviews
+
+'*_regress.*':
+  check_func: not has_dirs
+  check_args:
+    - ${SKA}/data/ska_testr/test_loads/2019/MAY2019/oflsa
+  reason: Missing load review files in ${SKA}/data/ska_testr/test_loads
+
+'*':
+  check_func: is_windows
+  reason: "ACIS LR tools do not run on Windows - spawn.run(['rst2html.py', ..]) fails"
+
+'test_unit.py':
+  check_func: not on_head_network
+  reason: Regression tests skipped unless on HEAD

@@ -1,3 +1,0 @@
-'test_unit.py':
-  check_func: not on_head_network
-  reason: Regression tests skipped unless on HEAD
