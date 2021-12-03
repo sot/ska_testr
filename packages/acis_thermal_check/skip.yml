@@ -1,0 +1,7 @@
+'*':
+  check_func: is_windows
+  reason: "ACIS LR tools do not run on Windows - spawn.run(['rst2html.py', ..]) fails"
+
+'test_unit.py':
+  check_func: not on_head_network
+  reason: Regression tests skipped unless on HEAD

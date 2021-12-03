@@ -1,2 +1,0 @@
-import testr
-testr.testr()
