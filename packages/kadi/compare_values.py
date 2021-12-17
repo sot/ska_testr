@@ -49,9 +49,14 @@ def write_events(start, stop):
             if col.info.dtype.kind == 'f':
                 col.info.format = '.3f'
 
-        filename = os.path.join(opt.data_root, attr + '.ecsv')
-        print('Writing event {}'.format(filename))
-        dat.write(filename, format='ascii.ecsv', overwrite=True)
+        if len(dat) > 0:
+            filename = os.path.join(opt.data_root, attr + '.txt')
+            print('Writing event {}'.format(filename))
+            dat.write(filename, format='ascii.fixed_width', overwrite=True)
+        else:
+            filename = os.path.join(opt.data_root, attr + '.ecsv')
+            print('Writing event {}'.format(filename))
+            dat.write(filename, format='ascii.ecsv', overwrite=True)
 
 
 def write_cmds(start, stop):
