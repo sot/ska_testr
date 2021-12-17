@@ -83,6 +83,10 @@ def compare_outputs():
         print(f'Comparing files {file_a} {file_b}')
         lines_a = file_a.read_text().splitlines()
         lines_b = file_b.read_text().splitlines()
+        # ecsv includes the format version in the first line, which should not be checked
+        if file_a.suffix == '.ecsv':
+            lines_a = lines_a[1:]
+            lines_b = lines_b[1:]
 
         diffs = difflib.unified_diff(
             lines_a, lines_b,
