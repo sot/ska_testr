@@ -8,7 +8,7 @@ import difflib
 import sys
 
 import kadi.events
-import kadi.cmds
+import kadi.commands
 import kadi.paths
 from Chandra.Time import DateTime
 
@@ -60,13 +60,23 @@ def write_events(start, stop):
 
 
 def write_cmds(start, stop):
+    # Writing the commands regression file:
+    #
+    # from kadi.commands import get_cmds
+    # out = get_cmds('2020:162', '2020:186')
+    # lines = out.pformat_like_backstop(max_params_width=None)
+    # with open('kadi_events_regress/cmds.txt', 'w') as fh:
+    #     fh.write('\n'.join(lines))
+    #
+    # $ tar -a -cvf events_cmds_regress.tar.bz2 events_cmds_regress
+
     print('Using commands file {}'.format(kadi.paths.IDX_CMDS_PATH()))
-    cmds = kadi.cmds.filter(start, stop)
-    out = repr(cmds)
+    cmds = kadi.commands.get_cmds(start, stop)
+    lines = cmds.pformat_like_backstop(max_params_width=None)
     filename = os.path.join(opt.data_root, 'cmds.txt')
     print('Writing commands {}'.format(filename))
     with open(filename, 'w') as fh:
-        fh.write(out)
+        fh.write('\n'.join(lines))
 
 
 def compare_outputs():
