@@ -11,6 +11,18 @@
     - ${SKA}/data/ska_testr/test_loads/2019/MAY2019/oflsa
   reason: Missing load review files in ${SKA}/data/ska_testr/test_loads
 
+'test_regress.sh':
+  check_func: not has_internet
+  check_args:
+    - https://cda.cfa.harvard.edu
+  reason: No access to CDA
+
+'post_regress.py':
+  check_func: not has_internet
+  check_args:
+    - https://cda.cfa.harvard.edu
+  reason: No access to CDA
+
 '*':
   check_func: is_windows
   reason: "ACIS LR tools do not run on Windows - spawn.run(['rst2html.py', ..]) fails"
