@@ -14,13 +14,13 @@
 'test_regress.sh':
   check_func: not has_internet
   check_args:
-    - https://cda.cfa.harvard.edu
+    - https://cda.cfa.harvard.edu/srservices/ocatDetails.do?format=text&obsid=5438
   reason: No access to CDA
 
 'post_regress.py':
   check_func: not has_internet
   check_args:
-    - https://cda.cfa.harvard.edu
+    - https://cda.cfa.harvard.edu/srservices/ocatDetails.do?format=text&obsid=5438
   reason: No access to CDA
 
 '*':
