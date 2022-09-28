@@ -8,4 +8,5 @@ check_files('test_*.log', ['warning', 'error'],
                     'alter_validators_add_error_messages',
                     'dropping state because of insufficent event time pad',
                     'negative event duration',
-                    'Coarse OBC'])
+                    'Coarse OBC',
+                    'no starcat for obsid 0'])
