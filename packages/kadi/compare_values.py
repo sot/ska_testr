@@ -59,26 +59,6 @@ def write_events(start, stop):
             dat.write(filename, format='ascii.ecsv', overwrite=True)
 
 
-def write_cmds(start, stop):
-    # Writing the commands regression file:
-    #
-    # from kadi.commands import get_cmds
-    # out = get_cmds('2020:162', '2020:186')
-    # lines = out.pformat_like_backstop(max_params_width=None)
-    # with open('kadi_events_regress/cmds.txt', 'w') as fh:
-    #     fh.write('\n'.join(lines))
-    #
-    # $ tar -a -cvf events_cmds_regress.tar.bz2 events_cmds_regress
-
-    print('Using commands file {}'.format(kadi.paths.IDX_CMDS_PATH()))
-    cmds = kadi.commands.get_cmds(start, stop)
-    lines = cmds.pformat_like_backstop(max_params_width=None)
-    filename = os.path.join(opt.data_root, 'cmds.txt')
-    print('Writing commands {}'.format(filename))
-    with open(filename, 'w') as fh:
-        fh.write('\n'.join(lines))
-
-
 def compare_outputs():
     shutil.unpack_archive('events_cmds_regress.tar.bz2')
 
@@ -120,7 +100,6 @@ if __name__ == '__main__':
     stop = DateTime(opt.stop) - 3
 
     write_events(start, stop)
-    write_cmds(start, stop)
 
     has_diff = compare_outputs()
     if has_diff:
