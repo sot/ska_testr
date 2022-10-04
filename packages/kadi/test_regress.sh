@@ -37,7 +37,6 @@ else
   STOP='2020:189:00:00:00'
 
   kadi_update_events --start=$START --stop=$STOP
-  kadi_update_cmds --start=$START --stop=$STOP
 
   # Write event and commands data using test database
   ./compare_values.py --start=$START --stop=$STOP --data-root=events_cmds
