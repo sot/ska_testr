@@ -2,7 +2,6 @@
 
 import os
 import argparse
-import shutil
 from pathlib import Path
 import difflib
 import sys
@@ -60,8 +59,6 @@ def write_events(start, stop):
 
 
 def compare_outputs():
-    shutil.unpack_archive('events_cmds_regress.tar.bz2')
-
     files_a = sorted(Path('events_cmds_regress').glob('*'))
     files_b = sorted(Path('events_cmds').glob('*'))
 
