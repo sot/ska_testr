@@ -1,4 +1,4 @@
-# %ECSV 0.9
+# %ECSV 1.0
 # ---
 # datatype:
 # - {name: start, datatype: float64, format: .3f}
@@ -7,5 +7,6 @@
 # - {name: tstop, datatype: float64, format: .3f}
 # - {name: dur, datatype: float64, format: .3f}
 # - {name: obsid, datatype: float64, format: .3f}
+# - {name: type, datatype: float64, format: .3f}
 # schema: astropy-2.0
-start stop tstart tstop dur obsid
+start stop tstart tstop dur obsid type
