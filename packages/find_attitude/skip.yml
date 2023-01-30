@@ -1,0 +1,4 @@
+'*':
+  check_func: is_windows
+  reason: "find_attitude tests are skipped on Windows (Sherpa is not installed)"
+
