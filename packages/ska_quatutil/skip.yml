@@ -1,0 +1,9 @@
+'*':
+  check_func: is_windows
+  reason: "requires shell (need to make proper unit tests)"
+
+'test_unit_git.sh':
+  check_func: not has_internet
+  check_args:
+    - https://github.com
+  reason: No access to Github
