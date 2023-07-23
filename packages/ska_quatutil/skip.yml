@@ -7,3 +7,9 @@
   check_args:
     - https://github.com
   reason: No access to Github
+
+'test_namespace_git.sh':
+  check_func: not has_internet
+  check_args:
+    - https://github.com
+  reason: No access to Github
