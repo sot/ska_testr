@@ -9,4 +9,5 @@ check_files('test_*.log', ['warning', 'error'],
                     'dropping state because of insufficent event time pad',
                     'negative event duration',
                     'Coarse OBC',
-                    'no starcat for obsid 0'])
+                    'no starcat for obsid 0',
+                    'from sot/matching-blocks-error-message'])
