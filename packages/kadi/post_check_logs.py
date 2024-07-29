@@ -10,4 +10,5 @@ check_files('test_*.log', ['warning', 'error'],
                     'negative event duration',
                     'Coarse OBC',
                     'no starcat for obsid 0',
-                    'from sot/matching-blocks-error-message'])
+                    'from sot/matching-blocks-error-message',
+                    'star idx 11 not found in obsid 2576'])
