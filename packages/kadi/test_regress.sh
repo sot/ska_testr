@@ -3,7 +3,7 @@
 KADI_VERSION_CMD=$(cat <<- END
 import re;
 import kadi;
-m = re.search('\.dev[0-9]+\+g(?P<sha>[a-zA-Z0-9]+)', kadi.__version__);
+m = re.search(r'\.dev[0-9]+\+g(?P<sha>[a-zA-Z0-9]+)', kadi.__version__);
 if m:
     print(m.groupdict()['sha'])
 else:
