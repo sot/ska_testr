@@ -10,7 +10,7 @@ as ``data``.
 import os
 
 import numpy as np
-from Ska.engarchive import fetch
+from cheta import fetch
 import argparse
 
 
